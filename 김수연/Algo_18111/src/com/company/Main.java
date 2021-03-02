@@ -14,8 +14,8 @@ public class Main {
         int m = Integer.parseInt(st.nextToken());
         int b = Integer.parseInt(st.nextToken());
 
-        int min = 256;
-        int max = 0;
+        int min = 257;
+        int max = -1;
 
         int[][] list = new int[n][m];
         for (int i = 0; i < n; i++) {
@@ -31,11 +31,10 @@ public class Main {
             }
         }
 
-        int second = 9999;
+        int second = Integer.MAX_VALUE;
         int floor = 0;
         int blocks;
 
-        check:
         for (int i = min; i <= max; i++) {
             int time = 0;
             blocks = b;
@@ -45,20 +44,24 @@ public class Main {
                     int temp = list[j][k] - i;
                     if (temp > 0) {
                         time += (temp * 2);
-                        blocks++;
+                        blocks += temp;
                     } else if (temp < 0) {
                         time += (temp * -1);
-                        blocks--;
+                        blocks -= (temp * -1);
                     }
-
-                    if (blocks < 0)
-                        break check;
                 }
             }
 
-            if (second > time) {
-                second = time;
-                floor = i;
+            if (blocks >= 0) {
+                if (second > time) {
+                    second = time;
+                    floor = i;
+                }
+
+                if (second == time && floor < i) {
+                    floor = i;
+                }
+
             }
         }
 
