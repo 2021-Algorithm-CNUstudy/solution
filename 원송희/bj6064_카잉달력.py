@@ -1,4 +1,5 @@
 from sys import stdin
+from math import gcd
 
 T=int(stdin.readline())
 
@@ -9,7 +10,7 @@ for i in range(T):
     x=int(temp[2])
     y=int(temp[3])
     result=-1
-    while (x<M*N+1):
+    while (x<=M*N//gcd(M, N)): #어차피 해의 개수는 최소공배수
         if x%N==y%N:
             result=x
             break
