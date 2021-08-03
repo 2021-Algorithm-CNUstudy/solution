@@ -70,6 +70,7 @@ def decode(N, M, code): # 암호 해독기
                 idx4=0
             real_idx+=1 #
         after_decode.append(result[::-1]) # temp는 뒤집어진 상태였으므로 다시 뒤집어서 추가
+    # 다시 생각해보면 그냥 해독기를 거꾸로 만들고 다른거 그냥 뒤집지 말걸..헷갈린다
     return after_decode
 
 T=int(sys.stdin.readline())
