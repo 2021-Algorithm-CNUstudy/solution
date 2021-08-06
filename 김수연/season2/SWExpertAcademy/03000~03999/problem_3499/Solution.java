@@ -1,4 +1,4 @@
-package problem_3456;
+package problem_3499;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -15,23 +15,24 @@ public class Solution {
 		
 		int t = Integer.parseInt(br.readLine());
 		for (int test_case = 1; test_case <= t; ++test_case) {
+			int n = Integer.parseInt(br.readLine());
 			StringTokenizer st = new StringTokenizer(br.readLine());
+			String[] list = new String[n];
+			for (int i = 0; i < n; i++)
+				list[i] = st.nextToken();
 			
-			int a = Integer.parseInt(st.nextToken());
-			int b = Integer.parseInt(st.nextToken());
-			int c = Integer.parseInt(st.nextToken());
-
-			bw.write("#" + test_case + " ");
-			if (a == b) {
-				if (a == c)
-					bw.write(String.valueOf(a));
-				else
-					bw.write(String.valueOf(c));
+			bw.write("#" + test_case);
+			if (n % 2 == 0) {
+				for (int i = 0; i < n / 2; i++) {
+					bw.write(" " + list[i]);
+					bw.write(" " + list[i + n / 2]);
+				}
 			} else {
-				if (a == c)
-					bw.write(String.valueOf(b));
-				else 
-					bw.write(String.valueOf(a));
+				for (int i = 0; i < n / 2; i++) {
+					bw.write(" " + list[i]);
+					bw.write(" " + list[i + 1 + n / 2]);
+				}
+				bw.write(" " + list[n / 2]);
 			}
 			bw.write("\n");
 		}

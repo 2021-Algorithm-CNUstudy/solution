@@ -1,10 +1,11 @@
-package example;
+package problem_10200;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.StringTokenizer;
 
 public class Solution {
 
@@ -14,10 +15,15 @@ public class Solution {
 		
 		int t = Integer.parseInt(br.readLine());
 		for (int test_case = 1; test_case <= t; ++test_case) {
+			StringTokenizer st = new StringTokenizer(br.readLine());
+			int n = Integer.parseInt(st.nextToken());
+			int a = Integer.parseInt(st.nextToken());
+			int b = Integer.parseInt(st.nextToken());
 			
+			int max = Math.min(a, b);
+			int min = n >= (a + b) ? 0 : (a + b - n);
 			
-			
-			bw.write("#" + test_case + " ");
+			bw.write("#" + test_case + " " + max + " " + min + "\n");
 		}
 		bw.close();
 	}

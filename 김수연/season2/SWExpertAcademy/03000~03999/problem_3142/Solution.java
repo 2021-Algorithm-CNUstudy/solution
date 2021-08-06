@@ -1,4 +1,4 @@
-package example;
+package problem_3142;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -14,10 +14,14 @@ public class Solution {
 		
 		int t = Integer.parseInt(br.readLine());
 		for (int test_case = 1; test_case <= t; ++test_case) {
+			String[] input = br.readLine().split(" ");
+			int n = Integer.parseInt(input[0]);
+			int m = Integer.parseInt(input[1]);
 			
+			int b = n - m;
+			int a = m - b;
 			
-			
-			bw.write("#" + test_case + " ");
+			bw.write("#" + test_case + " " + a + " " + b + "\n");
 		}
 		bw.close();
 	}

@@ -1,11 +1,11 @@
 package problem_1225;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Solution {
 
 	public static void main(String[] args) {
-		
 		Scanner scan = new Scanner(System.in);
 		
 		int t = 10;
@@ -15,6 +15,19 @@ public class Solution {
 			
 			for (int i = 0; i < 8; i++)
 				list.add(i, scan.nextInt());
+			
+			int min = Integer.MAX_VALUE;
+			for (int i = 0; i < 8; i++) {
+				if (list.get(i) < min)
+					min = list.get(i);
+			}
+			
+			int offset = (min / 15) * 15;
+			if (offset % 15 == 0)
+				offset -= 15;
+			
+			for (int i = 0; i < 8; i++)
+				list.set(i, list.get(i) - offset);
 			
 			int count = 1;
 			int temp = list.remove(0);
@@ -32,7 +45,6 @@ public class Solution {
 				System.out.print(" " + list.get(i));
 			System.out.println();
 		}
-		
 		scan.close();
 	}
 }
