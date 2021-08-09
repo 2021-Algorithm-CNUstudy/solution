@@ -1,10 +1,11 @@
-package problem_5515;
+package problem_9229;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class Solution {
@@ -16,18 +17,30 @@ public class Solution {
 		int t = Integer.parseInt(br.readLine());
 		for (int test_case = 1; test_case <= t; ++test_case) {
 			StringTokenizer st = new StringTokenizer(br.readLine());
+			int n = Integer.parseInt(st.nextToken());
 			int m = Integer.parseInt(st.nextToken());
-			int d = Integer.parseInt(st.nextToken());
 			
-			int[] days = {0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-			int[] answers = {3, 4, 5, 6, 0, 1, 2};
+			int[] list = new int[n];
+			st = new StringTokenizer(br.readLine());
+			for (int i = 0; i < n; i++)
+				list[i] = Integer.parseInt(st.nextToken());
 			
-			int totalDay = d;
-			for (int i = m; i > 1; i--)
-				totalDay += days[i - 1];
+			int answer = -1;
+			Arrays.sort(list);
 			
-			bw.write("#" + test_case + " " + answers[totalDay % 7] + "\n");
+			for (int i = n - 1; i >= 0; i--) {
+				for (int j = i - 1; j >= 0; j--) {
+					int value = list[i] + list[j];
+					if (answer < value && m >= value) {
+						answer = value;
+						break;
+					}
+				}
+			}
+			
+			bw.write("#" + test_case + " " +answer + "\n");
 		}
+		br.close();
 		bw.close();
 	}
 }

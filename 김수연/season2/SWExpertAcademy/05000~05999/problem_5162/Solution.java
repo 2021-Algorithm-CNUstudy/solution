@@ -1,4 +1,4 @@
-package problem_5515;
+package problem_5162;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -16,18 +16,14 @@ public class Solution {
 		int t = Integer.parseInt(br.readLine());
 		for (int test_case = 1; test_case <= t; ++test_case) {
 			StringTokenizer st = new StringTokenizer(br.readLine());
-			int m = Integer.parseInt(st.nextToken());
-			int d = Integer.parseInt(st.nextToken());
 			
-			int[] days = {0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-			int[] answers = {3, 4, 5, 6, 0, 1, 2};
+			int a = Integer.parseInt(st.nextToken());
+			int b = Integer.parseInt(st.nextToken());
+			int c = Integer.parseInt(st.nextToken());
 			
-			int totalDay = d;
-			for (int i = m; i > 1; i--)
-				totalDay += days[i - 1];
-			
-			bw.write("#" + test_case + " " + answers[totalDay % 7] + "\n");
+			bw.write("#" + test_case + " " + c / (Math.min(a, b)) + "\n");
 		}
+		br.close();
 		bw.close();
 	}
 }
