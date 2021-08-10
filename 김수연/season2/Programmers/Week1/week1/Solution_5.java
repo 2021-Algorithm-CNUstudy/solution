@@ -1,5 +1,6 @@
-package problem;
+package week1;
 
+// [카카오 인턴] 키패드 누르기
 class Solution_5 {
     public int cal(int start, int end) {
         if (start == 0)

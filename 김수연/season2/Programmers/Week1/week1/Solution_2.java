@@ -1,8 +1,8 @@
-package problem;
-
+package week1;
 
 import java.util.Arrays;
 
+// 체육복
 class Solution_2 {
     public int solution(int n, int[] lost, int[] reserve) {
         Arrays.sort(lost);

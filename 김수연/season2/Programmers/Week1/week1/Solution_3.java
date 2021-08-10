@@ -1,6 +1,6 @@
-package problem;
+package week1;
 
-
+// 모의고사
 class Solution_3 {
     public int[] solution(int[] answers) {
         int[] one = {1, 2, 3, 4, 5};

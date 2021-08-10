@@ -1,5 +1,6 @@
-package problem;
+package week1;
 
+// 폰켓몬
 class Solution_4 {
     public int solution(int[] nums) {
         int n = nums.length;

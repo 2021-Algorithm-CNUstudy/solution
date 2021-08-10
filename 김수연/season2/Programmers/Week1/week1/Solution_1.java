@@ -1,6 +1,6 @@
-package problem;
+package week1;
 
-
+// 부족한 금액 계산하기
 class Solution_1 {
     public long solution(int price, int money, int count) {
         long totalPrice = 0;

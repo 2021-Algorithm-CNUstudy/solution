@@ -12,7 +12,7 @@ public class Test {
 		Scanner scan = new Scanner(System.in);
 //		n = 4;
 //		isSelected = new boolean[n];
-//		subSet(0);
+		subSet(0);
 //		System.out.println(totalcount);
 		scan.close();
 	}
