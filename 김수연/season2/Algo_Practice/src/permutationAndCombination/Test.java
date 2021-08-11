@@ -1,4 +1,4 @@
-package PandC;
+package permutationAndCombination;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -19,24 +19,25 @@ public class Test {
 
 		switch (input) {
 		case 1:
-			// 1. 중복 순열
-			multisetPermutation(0, 1);
+			// 1. 중복 조합
+			multisetCombination(0, 1);
 			System.out.println("경우의 수: " + totalCount);
 			break;
 		case 2:
-			// 2. 순열
+			// 2. 조합
 			isSelected = new boolean[7];
-			permutation(0, 1);
+			combination(0, 1);
 			System.out.println("경우의 수: " + totalCount);
 			break;
 		case 3:
-			// 3. 중복 조합
-			multisetCombination(0);
+			// 3. 중복 순열
+			multisetPermutation(0);
 			System.out.println("경우의 수: " + totalCount);
 			break;
 		case 4:
-			// 4. 조합
-			combination(0);
+			// 4. 순열
+			isSelected = new boolean[7];
+			permutation(0);
 			System.out.println("경우의 수: " + totalCount);
 			break;
 		}
@@ -44,7 +45,7 @@ public class Test {
 		scan.close();
 	}
 
-	private static void multisetCombination(int count) {
+	private static void multisetPermutation(int count) {
 		if (count == n) {
 			totalCount++;
 			System.out.println(Arrays.toString(numbers));
@@ -53,11 +54,11 @@ public class Test {
 
 		for (int i = 1; i <= 6; i++) {
 			numbers[count] = i;
-			multisetCombination(count + 1);
+			multisetPermutation(count + 1);
 		}
 	}
 
-	private static void combination(int count) {
+	private static void permutation(int count) {
 		if (count == n) {
 			totalCount++;
 			System.out.println(Arrays.toString(numbers));
@@ -71,12 +72,12 @@ public class Test {
 			numbers[count] = i;
 			isSelected[i] = true;
 
-			combination(count + 1);
+			permutation(count + 1);
 			isSelected[i] = false;
 		}
 	}
 
-	private static void multisetPermutation(int count, int start) {
+	private static void multisetCombination(int count, int start) {
 		if (count == n) {
 			totalCount++;
 			System.out.println(Arrays.toString(numbers));
@@ -85,11 +86,11 @@ public class Test {
 
 		for (int i = start; i <= 6; i++) {
 			numbers[count] = i;
-			multisetPermutation(count + 1, i);
+			multisetCombination(count + 1, i);
 		}
 	}
 
-	private static void permutation(int count, int start) {
+	private static void combination(int count, int start) {
 		if (count == n) {
 			totalCount++;
 			System.out.println(Arrays.toString(numbers));
@@ -97,8 +98,13 @@ public class Test {
 		}
 
 		for (int i = start; i <= 6; i++) {
+			if (isSelected[i])
+				continue;
 			numbers[count] = i;
-			permutation(count + 1, i + 1);
+			isSelected[i] = true;
+			
+			combination(count + 1, i + 1);
+			isSelected[i] = false;
 		}
 	}
 }
