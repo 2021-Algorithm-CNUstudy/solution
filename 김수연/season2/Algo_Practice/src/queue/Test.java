@@ -21,7 +21,7 @@ class Student implements Comparable<Student> {
 	}
 }
 
-public class Main {
+public class Test {
 	public static void main(String[] args) {
 		PriorityQueue<Student> q = new PriorityQueue<>(new Comparator<Student>() {
 

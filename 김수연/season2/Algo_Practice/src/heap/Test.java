@@ -2,7 +2,7 @@ package heap;
 
 import java.util.Arrays;
 
-public class HeapTest {
+public class Test {
 	public static void main(String[] args) {
 		MaxHeap max = new MaxHeap();
 		max.offer(3);

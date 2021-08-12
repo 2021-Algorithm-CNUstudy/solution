@@ -31,7 +31,6 @@ public class Main {
 				arr[i][j] = Integer.parseInt(st.nextToken());
 		}
 		
-		
 		list = new int[k][3];
 		for (int i = 0; i < k; ++i) {
 			st = new StringTokenizer(br.readLine());
