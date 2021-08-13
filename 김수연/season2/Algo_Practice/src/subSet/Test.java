@@ -3,7 +3,7 @@ package subSet;
 import java.util.Scanner;
 
 public class Test {
-	static int n;
+	static int n = 4;
 	static int totalcount;
 	static boolean[] isSelected;
 	static int[] input = {1, 2, 3, 4};
@@ -17,18 +17,28 @@ public class Test {
 		scan.close();
 	}
 	
+//	private static void subSet(int count) {
+//		if (count == n) {
+//			totalcount++;
+//			for (int i = 0; i < n; i++)
+//				System.out.print((isSelected[i] ? input[i] : "X") + " ");
+//			System.out.println();
+//			return ;
+//		} else {
+//			isSelected[count] = true;
+//			subSet(count + 1);
+//			isSelected[count] = false;
+//			subSet(count + 1);
+//		}
+//	}
+	
 	private static void subSet(int count) {
-		if (count == n) {
-			totalcount++;
-			for (int i = 0; i < n; i++)
-				System.out.print((isSelected[i] ? input[i] : "X") + " ");
+		for (int i = 0; i < (1 << n); i++) {
+			for (int j = 0; j < n; j++) {
+				if ((i & (1 << j)) != 0)
+					System.out.print(input[j] + " ");
+			}
 			System.out.println();
-			return ;
-		} else {
-			isSelected[count] = true;
-			subSet(count + 1);
-			isSelected[count] = false;
-			subSet(count + 1);
 		}
 	}
 }

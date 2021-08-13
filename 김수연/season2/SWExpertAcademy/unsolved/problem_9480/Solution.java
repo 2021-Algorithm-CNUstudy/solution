@@ -9,6 +9,7 @@ import java.util.Arrays;
 
 public class Solution {
 	static int n, answer;
+	static String temp;
 	static boolean[] check;
 	static String[] input, output;
 
@@ -40,20 +41,22 @@ public class Solution {
 		if (check()) {
 			System.out.println(Arrays.toString(output));
 			answer++;
+			for (int i = 0; i < temp.length(); ++i)
+				check[temp.charAt(i) - 97] = false;
+			return;
+		}
+		
+		if (count == n) {
 			check = new boolean[26];
 			return;
 		}
 		
-		if (count == n)
-			return;
-		
 		for (int i = start; i <= n; ++i) {
-			
-			String temp = input[i - 1];
+			temp = input[i - 1];
 			for (int j = 0; j < temp.length(); ++j)
 				check[temp.charAt(j) - 97] = true;
 			
-			output[count] = temp;
+			output[count] = String.valueOf(i - 1);
 			combination(count + 1, i + 1);
 		}
 	}
