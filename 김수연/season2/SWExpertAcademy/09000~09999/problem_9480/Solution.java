@@ -5,13 +5,12 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.util.Arrays;
+import java.util.ArrayList;
 
 public class Solution {
-	static int n, answer;
-	static String temp;
-	static boolean[] check;
-	static String[] input, output;
+	static int n, r;
+	static int[] indexList;
+	static ArrayList<int[]> list;
 
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -21,15 +20,33 @@ public class Solution {
 		for (int test_case = 1; test_case <= t; ++test_case) {
 			n = Integer.parseInt(br.readLine());
 			
-			input = new String[n];
+			String[] input = new String[n];
 			for (int i = 0; i < n; ++i)
 				input[i] = br.readLine();
 			
-			check = new boolean[26];
-			output = new String[n];
+			list = new ArrayList<>();
+			for (r = 1; r <= n; ++r) {
+				indexList = new int[r];
+				combination(0, 1);
+			}
 			
-			answer = 0;
-			combination(0, 1);
+			int answer = 0;
+			check: for (int i = 0; i < list.size(); ++i) {
+				boolean[] check = new boolean[26];
+				int[] comb = list.get(i);
+				for (int j = 0; j < comb.length; ++j) {
+					String temp = input[comb[j]];
+					for (int k = 0; k < temp.length(); ++k)
+						check[temp.charAt(k) - 97] = true;
+				}
+				
+				for (int j = 0; j < 26; ++j) {
+					if (check[j] == false)
+						continue check;
+				}
+				
+				++answer;
+			}
 			
 			bw.write("#" + test_case + " " + answer + "\n");
 		}
@@ -38,34 +55,17 @@ public class Solution {
 	}
 	
 	private static void combination(int count, int start) {
-		if (check()) {
-			System.out.println(Arrays.toString(output));
-			answer++;
-			for (int i = 0; i < temp.length(); ++i)
-				check[temp.charAt(i) - 97] = false;
-			return;
-		}
-		
-		if (count == n) {
-			check = new boolean[26];
+		if (count == r) {
+			int[] addList = new int[r];
+			for (int i = 0; i < r; ++i)
+				addList[i] = indexList[i];
+			list.add(addList);
 			return;
 		}
 		
 		for (int i = start; i <= n; ++i) {
-			temp = input[i - 1];
-			for (int j = 0; j < temp.length(); ++j)
-				check[temp.charAt(j) - 97] = true;
-			
-			output[count] = String.valueOf(i - 1);
+			indexList[count] = i - 1;
 			combination(count + 1, i + 1);
 		}
-	}
-	
-	private static boolean check() {
-		for (int i = 0; i < 26; ++i) {
-			if (! check[i])
-				return false;
-		}
-		return true;
 	}
 }
