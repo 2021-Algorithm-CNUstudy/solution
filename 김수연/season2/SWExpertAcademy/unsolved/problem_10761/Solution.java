@@ -1,10 +1,11 @@
-package problem_10032;
+package problem_10761;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 public class Solution {
@@ -16,14 +17,15 @@ public class Solution {
 		int t = Integer.parseInt(br.readLine());
 		for (int test_case = 1; test_case <= t; ++test_case) {
 			StringTokenizer st = new StringTokenizer(br.readLine());
+			
 			int n = Integer.parseInt(st.nextToken());
-			int k = Integer.parseInt(st.nextToken());
+			for (int i = 0; i < n; ++i) {
+				String robot = st.nextToken();
+				
+			}
 			
-			int answer = 0;
-			if (n % k != 0)
-				answer = 1;
-			
-			bw.write("#" + test_case + " " + answer + "\n");
+			int seconds = 0;
+			bw.write("#" + test_case + " " + seconds + "\n");
 		}
 		br.close();
 		bw.close();
