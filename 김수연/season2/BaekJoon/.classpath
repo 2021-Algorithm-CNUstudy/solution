@@ -2,8 +2,15 @@
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="src" path="01000~09999"/>
+	<classpathentry kind="src" path="01000~01999"/>
+	<classpathentry kind="src" path="02000~02999"/>
+	<classpathentry kind="src" path="03000~03999"/>
+	<classpathentry kind="src" path="04000~04999"/>
+	<classpathentry kind="src" path="05000~05999"/>
+	<classpathentry kind="src" path="06000~06999"/>
+	<classpathentry kind="src" path="07000~07999"/>
+	<classpathentry kind="src" path="08000~08999"/>
+	<classpathentry kind="src" path="09000~09999"/>
 	<classpathentry kind="src" path="10000~"/>
-	<classpathentry kind="src" path="unsolved"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
