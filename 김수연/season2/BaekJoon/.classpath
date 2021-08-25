@@ -12,5 +12,6 @@
 	<classpathentry kind="src" path="08000~08999"/>
 	<classpathentry kind="src" path="09000~09999"/>
 	<classpathentry kind="src" path="10000~"/>
+	<classpathentry kind="src" path="unsolved"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
