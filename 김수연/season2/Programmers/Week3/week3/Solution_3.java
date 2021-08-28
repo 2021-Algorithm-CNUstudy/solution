@@ -1,3 +1,5 @@
+package week3;
+
 import java.util.*;
 
 // 크레인 인형뽑기 게임

@@ -1,3 +1,5 @@
+package week3;
+
 // 음양 더하기
 class Solution_2 {
     public int solution(int[] absolutes, boolean[] signs) {

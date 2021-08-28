@@ -1,8 +1,8 @@
 package week2;
 
-// 상호 평가
 import java.util.*;
 
+// 상호 평가
 class Solution_1 {
     public String solution(int[][] scores) {
         int n = scores.length;

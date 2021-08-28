@@ -1,3 +1,5 @@
+package week3;
+
 import java.util.*;
 
 // 소수 만들기

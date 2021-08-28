@@ -1,3 +1,5 @@
+package week3;
+
 import java.util.*;
 
 // 완주하지 못한 선수
