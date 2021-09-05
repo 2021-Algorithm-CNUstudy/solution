@@ -21,16 +21,10 @@ public class Solution {
 			}
 		}
 		
-		StringBuilder sb = new StringBuilder();
 		for (i = 2; i < 1000000; ++i) {
 			if (! list[i]) {
-//				sb.append(i);
-//				sb.append(" ");
-				System.out.print(i + "1");
+				System.out.print(i + " ");
 			}
 		}
-//		System.out.println();
-//		System.out.println(sb.toString());
-//		System.out.println(sb.length());
 	}
 }
