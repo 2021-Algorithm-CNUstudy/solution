@@ -4,14 +4,14 @@ import java.util.Arrays;
 
 public class Test {
 	static int n, r, totalCount;
-	static int[] input, output;
+	static char[] input, output;
 	static boolean[] isSelected;
 	
 	public static void main(String[] args) {
-		input = new int[] {1, 2, 7, 9};
+		input = new char[] {'1', '2', '7', '9'};
 		n = input.length;
-		r = 2;
-		output = new int[r];
+		r = 4;
+		output = new char[r];
 		
 		permutation(0, 0);
 		System.out.println(Arrays.toString(input));
