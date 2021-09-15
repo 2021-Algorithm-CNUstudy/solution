@@ -17,13 +17,6 @@ public class Test {
 		System.out.println(Arrays.toString(input));
 		System.out.println("n: " + n + " r: " + r);
 		System.out.println("nPr: " + totalCount + "개");
-		
-		totalCount = 0;
-		isSelected = new boolean[n];
-		permutation(0);
-		System.out.println(Arrays.toString(input));
-		System.out.println("n: " + n + " r: " + r);
-		System.out.println("nPr: " + totalCount + "개");
 	}
 
 	private static void permutation(int count, int flag) {
@@ -38,22 +31,6 @@ public class Test {
 
 			output[count] = input[i];
 			permutation(count + 1, flag | 1 << i);
-		}
-	}
-	
-	private static void permutation(int count) {
-		if (count == r) {
-			totalCount++;
-			System.out.println(Arrays.toString(output));
-			return;
-		}
-		
-		for (int i = 0; i < n; i++) {
-			if (isSelected[i]) continue;
-			output[count] = input[i];
-			isSelected[i] = true;
-			permutation(count + 1);
-			isSelected[i] = false;
 		}
 	}
 }
