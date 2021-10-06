@@ -21,11 +21,12 @@ public class Solution {
 			}
 		}
 		
-		// test
+		StringBuilder sb = new StringBuilder();
 		for (i = 2; i < 1000000; ++i) {
-			if (! list[i]) {
-				System.out.print(i + " ");
-			}
+			if (! list[i])
+				sb.append(i + " ");
 		}
+		
+		System.out.println(sb.toString());
 	}
 }
